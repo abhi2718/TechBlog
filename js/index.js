@@ -1,4 +1,4 @@
-import {fetchBlogs,poastNewBlogToDb } from "./blogs.js";
+import {fetchBlogs,postNewBlogToDb } from "./blogs.js";
 (() => {
   'use strict'
   const forms = document.querySelectorAll('.needs-validation')
@@ -19,7 +19,7 @@ const createBlog = (blog,id) => {
     <img src="${blog.urlToImage}" alt="blog-image">
     <div class="card-body card-content">
       <p class="card-text ">${blog.title}</p>
-      <a href="./screens/createBlog.html?${id}" class="btn btn-primary">Read More</a>
+      <a href="./screens/readBlog.html?${id}" class="btn btn-primary">Read More</a>
     </div>
   </div>`;
 };
@@ -40,7 +40,7 @@ const createNewBlog = async(e) => {
   e.stopPropagation();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  await poastNewBlogToDb(formProps);
+  await postNewBlogToDb(formProps);
   window.location.reload();
 }
 

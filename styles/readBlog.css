@@ -1,0 +1,23 @@
+.blog{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.blog .title{
+    margin-top: 16px;
+   text-align: center;
+}
+.blog-image{
+    width: 100vw;
+    height: 500px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+.description{
+    margin-top: 16px;
+    text-align: center;
+    max-width: 800px;
+
+}
