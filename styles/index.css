@@ -1,41 +1,32 @@
-.customBanner img{
-    width: 100%;
-    height:650px;
+.customBanner img {
+  width: 100%;
+  height: 650px;
 }
 
 .blogContainer {
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.blogCard{
-    margin-bottom: 40px;
+.blogCard {
+  margin-bottom: 40px;
 }
 
 .blogCard img {
-    height: 200px;
-}
-.card-content h5{
-    height: 50px;
+  height: 200px;
 }
 
-.max-lines {
-    display: block;/* or inline-block */
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    overflow: hidden;
-    max-height: 9em;
-    line-height: 1.8em;
-  }
+.memu a {
+  text-decoration: none;
+}
 
-  .card-content .title{
-    font-weight: bold;
-    display: block;/* or inline-block */
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    overflow: hidden;
-    max-height: 3.6em;
-    line-height: 1.8em;
-  }
+.blogForm {
+  padding: 16px;
+}
+
+.submitButtonContainer {
+  display: flex;
+  justify-content: flex-start;
+}

@@ -1,11 +1,25 @@
-import {fetchBlogs } from "./blogs.js";
-
-const createBlog = (blog) => {
+import {fetchBlogs,poastNewBlogToDb } from "./blogs.js";
+(() => {
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation')
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
+        createNewBlog(event)
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+const createBlog = (blog,id) => {
   return `<div class="card blogCard" style="width: 18rem;" >
     <img src="${blog.urlToImage}" alt="blog-image">
     <div class="card-body card-content">
       <p class="card-text ">${blog.title}</p>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="./screens/createBlog.html?${id}" class="btn btn-primary">Read More</a>
     </div>
   </div>`;
 };
@@ -17,7 +31,19 @@ document.body.appendChild(blogContainer);
 fetchBlogs().then((data) => {
   for (const property in data) {
     const blogDiv = document.createElement("div");
-    blogDiv.innerHTML = createBlog(data[property]);
+    blogDiv.innerHTML = createBlog(data[property],property);
     blogContainer.appendChild(blogDiv);
   }
 });
+const createNewBlog = async(e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+  await poastNewBlogToDb(formProps);
+  window.location.reload();
+}
+
+
+
+

@@ -17,6 +17,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./styles/index.css" />
+    <script type="module" type="text/javascript" src="./js/index.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -35,8 +36,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-          <div class="navbar-text">
-            <button type="button" class="btn btn-dark">Create Blog</button>
+          <div class="navbar-text memu">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Create Blog
+            </button>
           </div>
         </div>
       </div>
@@ -46,6 +54,71 @@
         src="https://www.epo.org/about-us/annual-reports-statistics/statistics/2020/digital-technologies/TopVisual.jpg?lenya.module=svg&height=283&width=761"
       />
     </div>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Create New Blog
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form class="needs-validation blogForm" novalidate>
+            <div class="mb-3">
+              <label for="validationCustom01" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                required
+                name="title"
+              />
+              <div class="invalid-feedback">Title is required!</div>
+            </div>
+            <div class="mb-3">
+              <label for="validationCustom02" class="form-label"
+                >Image Url</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom02"
+                required
+                name="imageUrl"
+              />
+              <div class="invalid-feedback">Image Url is required!</div>
+            </div>
+            <div class="mb-3">
+              <label for="validationTextarea" class="form-label"
+                >Description</label
+              >
+              <textarea
+                class="form-control"
+                id="validationTextarea"
+                required
+                name="description"
+              ></textarea>
+              <div class="invalid-feedback">Description is required!</div>
+            </div>
+            <div class="submitButtonContainer">
+              <button class="btn btn-primary submit" type="submit">
+                Create Blog
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
-  <script type="module"  type="text/javascript" src="./js/index.js"></script>
 </html>
