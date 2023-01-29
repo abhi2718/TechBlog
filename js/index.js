@@ -1,11 +1,10 @@
-import { blogArray, fetchBlogs } from "./blogs.js";
+import {fetchBlogs } from "./blogs.js";
 
 const createBlog = (blog) => {
   return `<div class="card blogCard" style="width: 18rem;" >
     <img src="${blog.urlToImage}" alt="blog-image">
     <div class="card-body card-content">
-      <h5 class="card-title">${blog.title.substring(0, 40)}</h5>
-      <p class="card-text max-lines">${blog.description}</p>
+      <p class="card-text ">${blog.title}</p>
       <a href="#" class="btn btn-primary">Read More</a>
     </div>
   </div>`;
@@ -16,9 +15,9 @@ blogContainer.className = "blogContainer";
 document.body.appendChild(blogContainer);
 
 fetchBlogs().then((data) => {
-  data.forEach((blog) => {
+  for (const property in data) {
     const blogDiv = document.createElement("div");
-    blogDiv.innerHTML = createBlog(blog);
+    blogDiv.innerHTML = createBlog(data[property]);
     blogContainer.appendChild(blogDiv);
-  });
+  }
 });
